@@ -4,7 +4,7 @@
 
 > **Beta Release** - This action is in beta. We'd love your feedback! [Open an issue](https://github.com/apiverve/action-visual-testing/issues) if you encounter any problems.
 
-[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Visual Testing-blue?logo=github)](https://github.com/marketplace/actions/apiverve-visual-testing)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Visual_Testing-blue?logo=github)](https://github.com/apiverve/action-visual-testing)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **[Browse All APIs](https://apiverve.com/marketplace?utm_source=github&utm_medium=action&utm_campaign=visual-testing)** | **[Get Free API Key](https://dashboard.apiverve.com/signup?utm_source=github&utm_medium=action&utm_campaign=visual-testing)** | **[Documentation](https://docs.apiverve.com?utm_source=github&utm_medium=action&utm_campaign=visual-testing)**
