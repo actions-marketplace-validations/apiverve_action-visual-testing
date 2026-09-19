@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/action-visual-testing",
-  "version": "0.1.0-beta",
+  "version": "1.0.0",
   "description": "Capture screenshots and generate PDFs for visual regression testing and documentation",
   "main": "dist/index.js",
   "scripts": {

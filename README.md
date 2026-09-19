@@ -2,8 +2,6 @@
 
 > Capture screenshots and generate PDFs for visual regression testing and documentation
 
-> **Beta Release** - This action is in beta. We'd love your feedback! [Open an issue](https://github.com/apiverve/action-visual-testing/issues) if you encounter any problems.
-
 [![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Visual_Testing-blue?logo=github)](https://github.com/apiverve/action-visual-testing)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -23,9 +21,9 @@ This action provides access to APIVerve's Visual Testing APIs directly in your G
 
 | API | Description |
 |-----|-------------|
-| `webscreenshots` | Web Screenshots is a simple tool for capturing screenshots of web pages. It returns an image screenshot of the web page provided. |
-| `websitetopdf` | Website to PDF is a simple tool for converting a website to PDF. It returns the PDF file generated from the website. |
-| `htmltopdf` | HTML to PDF is a simple tool for converting HTML to PDF. It returns the PDF file generated from the HTML. |
+| `webscreenshots` | Website Screenshot renders webpage screenshots from any URL into PNG, JPEG, or WebP format. It returns a signed download link with an expiration timestamp, supporting custom viewport dimensions up to 3840 pixels wide. |
+| `websitetopdf` | Website to PDF renders any public web page into a PDF document from a submitted URL. It returns a temporary signed download link, unique filename, and expiration timestamp, with paid plans adding custom margins and landscape layout. |
+| `htmltopdf` | HTML to PDF renders raw HTML markup into downloadable PDF files. Send your escaped HTML string to receive a signed download link, an expiration timestamp, and the generated document filename. |
 | `imageconverter` | Image Converter transforms images between formats. Convert HEIC from iPhones, modern WebP and AVIF formats, or classic PNG, JPG, GIF, and TIFF. Includes optional resizing and quality control. |
 
 ---
@@ -38,7 +36,7 @@ This action provides access to APIVerve's Visual Testing APIs directly in your G
   with:
     api_key: ${{ secrets.APIVERVE_KEY }}
     api: webscreenshots
-    params: '{&quot;url&quot;: &quot;https://example.com&quot;, &quot;width&quot;: 1280, &quot;height&quot;: 800, &quot;fullpage&quot;: false}'
+    params: '{"url": "https://example.com", "width": 1280, "height": 800, "fullpage": false}'
     output_file: ./screenshot.png
 ```
 
@@ -80,7 +78,6 @@ Go to your repository **Settings** → **Secrets and variables** → **Actions**
 | `output_file` | Path to save binary output (images, PDFs) | No | - |
 | `format` | Response format: `json`, `yaml`, or `xml` | No | `json` |
 | `fail_on_error` | Fail workflow if API returns error | No | `true` |
-
 *\*API key is required but can be provided via input OR `APIVERVE_API_KEY` / `APIVERVE_KEY` environment variable.*
 
 ## Outputs
@@ -91,7 +88,6 @@ Go to your repository **Settings** → **Secrets and variables** → **Actions**
 | `data` | The `data` field from response as JSON |
 | `status` | API status (`ok` or `error`) |
 | `file` | Path to downloaded file (if `output_file` was used) |
-
 ---
 
 ## Examples
@@ -107,7 +103,7 @@ Capture a screenshot of your deployed site
   with:
     api_key: ${{ secrets.APIVERVE_KEY }}
     api: webscreenshots
-    params: '{&quot;url&quot;: &quot;https://example.com&quot;, &quot;width&quot;: 1280, &quot;height&quot;: 800, &quot;fullpage&quot;: false}'
+    params: '{"url": "https://example.com", "width": 1280, "height": 800, "fullpage": false}'
     output_file: ./screenshot.png
 
 - name: Upload artifact
@@ -128,7 +124,7 @@ Convert a webpage to PDF
   with:
     api_key: ${{ secrets.APIVERVE_KEY }}
     api: websitetopdf
-    params: '{&quot;url&quot;: &quot;https://docs.example.com&quot;}'
+    params: '{"url": "https://docs.example.com"}'
     output_file: ./docs.pdf
 
 - name: Upload artifact
@@ -163,7 +159,7 @@ jobs:
         with:
           api_key: ${{ secrets.APIVERVE_KEY }}
           api: webscreenshots
-          params: '{&quot;url&quot;: &quot;https://example.com&quot;, &quot;width&quot;: 1280, &quot;height&quot;: 800, &quot;fullpage&quot;: false}'
+          params: '{"url": "https://example.com", "width": 1280, "height": 800, "fullpage": false}'
           output_file: ./screenshot.png
 
       - name: Show result
